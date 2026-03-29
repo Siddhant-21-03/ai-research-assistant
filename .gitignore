@@ -1,0 +1,6 @@
+.env
+chroma_db/
+backend/uploads/
+__pycache__/
+*.pyc
+.streamlit/
