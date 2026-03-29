@@ -1,59 +1,62 @@
-# AI Research Assistant 🔬
+# AI Research Assistant
 
-A full-stack Retrieval-Augmented Generation (RAG) application that allows users to semantically search, chat with, and analyze their personal documents (PDF, CSV, TXT, MD) using Advanced AI.
+This is a Retrieval-Augmented Generation (RAG) application built to help parse, search, and chat with personal documents like PDFs, CSVs, and text files. 
 
-## 🌟 Features
-- **Intelligent RAG Pipeline**: Built with LangChain and ChromaDB to chunk, embed, and accurately retrieve context from uploaded documents.
-- **Conversational Memory**: The AI remembers your chat history, allowing for context-aware follow-up questions and deeper logical analysis.
-- **Context Filtering**: Seamlessly switch between querying "All Documents" or filtering to extract facts from a specific file.
-- **Modern UI**: A sleek, dark-themed Streamlit frontend featuring document management sidebars, vector database statistics, and inline source citation.
-- **Robust Backend**: Powered by an asynchronous FastAPI architecture, keeping the heavy machine learning workloads completely decoupled from the frontend.
+## Features
 
-## 🛠️ Technology Stack
-- **Backend API**: FastAPI, Python
-- **Frontend App**: Streamlit
-- **AI & ML**: LangChain, ChromaDB, Google Gemini (2.5 Flash & Embeddings)
-- **Data Engineering**: PyPDFLoader, RecursiveCharacterTextSplitter
+- **Document Processing Pipeline**: Uses LangChain and ChromaDB for chunking, generating embeddings, and storing vector context from uploaded files.
+- **Conversational Memory**: The backend maintains chat history state to handle logical follow-up questions.
+- **Context Filtering**: Users can query across the entire vector database or filter searches to a single specific document.
+- **User Interface**: A Streamlit frontend providing a chat interface, source citations, document management, and usage statistics.
+- **API Backend**: Built with FastAPI to keep the machine learning orchestration decoupled from the frontend client.
 
-## 🚀 Getting Started
+## Technology Stack
+
+- **Backend**: Python, FastAPI
+- **Frontend**: Streamlit
+- **Machine Learning**: LangChain, ChromaDB, Google Gemini API
+- **Data Loading**: PyPDFLoader, RecursiveCharacterTextSplitter
+
+## Running Locally
 
 ### Prerequisites
+
 - Python 3.10+
 - A Google Gemini API Key
 
-### Installation
+### Setup Instructions
 
-1. Clone the repository:
+1. Clone the repository and navigate into it:
    ```bash
-   git clone https://github.com/yourusername/ai-research-assistant.git
+   git clone https://github.com/Siddhant-21-03/ai-research-assistant.git
    cd ai-research-assistant
    ```
 
-2. Install the required dependencies:
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Set up your Environment Variables:
-   Create a `.env` file in the root directory and add your API key:
+3. Configure environment variables:
+   Create a `.env` file in the root directory and add your API key.
    ```env
    GOOGLE_API_KEY=your_gemini_api_key_here
    ```
 
-### Running the Application
+### Starting the Servers
 
-This is a two-part application. You will need to start both the Backend (FastAPI) and Frontend (Streamlit) servers.
+The application requires both the backend API and the frontend server to be running simultaneously.
 
-**1. Start the Backend API:**
-Open your terminal in the project directory and run:
-```bash
-python -m uvicorn backend.main:app --reload
-```
-*The backend will run on `http://127.0.0.1:8000`. You can view the API documentation at `/docs`.*
+1. **Start the FastAPI Backend:**
+   Open a terminal in the project directory:
+   ```bash
+   python -m uvicorn backend.main:app --reload
+   ```
+   The API will be available at `http://127.0.0.1:8000`.
 
-**2. Start the Frontend UI:**
-Open a **new** terminal window and run:
-```bash
-streamlit run frontend/app.py
-```
-*The frontend will open in your browser at `http://localhost:8501`.*
+2. **Start the Streamlit Frontend:**
+   Open a second terminal window:
+   ```bash
+   streamlit run frontend/app.py
+   ```
+   The UI will be accessible at `http://localhost:8501`.
